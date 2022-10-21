@@ -1,0 +1,30 @@
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+    "name" : "Nachiket Yawalkar",
+    "age" : 23,
+    "email" : "nachiket@gmail.com",
+    "password" : "dumphuck"
+}
+
+###
+POST http://localhost:3000/tasks HTTP/1.1
+content-type: application/json
+
+{
+    "description" : "Buy 1 Ltr. Milk",
+    "completed" : false
+}
+
+###
+GET http://localhost:3000/users HTTP/1.1
+
+###
+GET http://localhost:3000/users/63499241ad67ddf70b1a00a0 HTTP/1.1
+
+###
+GET http://localhost:3000/tasks HTTP/1.1
+
+###
+GET http://localhost:3000/tasks/634998a57ee5e0e40bc5366f HTTP/1.1
