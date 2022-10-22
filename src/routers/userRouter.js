@@ -2,65 +2,74 @@ const express = require('express')
 const router = new express.Router()
 const User = require('../models/user')
 
-router.post('/users', (req, res) => {
+router.post('/users', async (req, res) => {
 
-    const user = new User(req.body)
-  
-    user.save().then(() => {
-      console.log(user)
-    }).catch((error) => {
-      console.log("Error " + error)
-    })
-  
-  })
+  const user = new User(req.body)
 
-  router.get('/users', (req, res) => {
+  try {
+    await user.save()
+    res.status(201).send(user)
+  } catch (e) {
+    res.status(400).send(e)
+  }
 
-    User.find({}).then((users) => {
-      console.log(users)
-    }).catch((error) => {
-      console.log(error)
-    })
-  
-  })
-  
-  router.get('/users/:id', (req, res) => {
-    // console.log(req.params)
-  
-    User.find({ "_id": req.params.id }).then((user) => {
-      if(!user){
-        return res.status(404).send()
-      }
-      console.log(user)
-    }).catch((error) => {
-      res.status(500).send()
-    })
-  
-  })
-  
-  router.patch('/users/:id', (req, res) => {
-  
-    User.findByIdAndUpdate(req.params.id, req.body, {new : true, runValidators : true}).then((user) => {
-      
-      if(!user){
-        return res.status(404).send()
-      }
-      console.log(user)
-      console.log("User updated successfully")
-    }).catch((e)=> {
-      res.status(500).send()
-    })
-  
-  })
+})
 
-  router.delete('/users/:id', (req, res) => {
+router.get('/users', async (req, res) => {
 
-    User.findByIdAndDelete(req.params.id).then((user)=>{
-  
-    }).catch((e) => {
-      res.status(500).send()
+  try {
+    const users = await User.find({})
+    console.log(users)
+  } catch (e) {
+    console.log(e)
+  }
+
+})
+
+router.get('/users/:id', async (req, res) => {
+
+
+  try {
+    const user = await User.find({ "_id": req.params.id })
+    if (!user) {
+      return res.status(404).send()
+    }
+    console.log(user)
+  } catch (e) {
+    console.log(e)
+  }
+
+
+})
+
+router.patch('/users/:id', async (req, res) => {
+
+  const updates = Object.keys(req.body)
+
+  try {
+    const user = await User.findById(req.params.id)
+
+    updates.forEach((update) => {
+      user[update] = req.body[update]
     })
-  
-  })
+
+    await user.save()
+  } catch (e) {
+    res.status(500).send()
+  }
+
+
+})
+
+router.delete('/users/:id', async (req, res) => {
+
+  try {
+    const user = await User.findByIdAndDelete(req.params.id)
+    console.log(user)
+  } catch (e) {
+    console.log("Error " + e)
+  }
+
+})
 
 module.exports = router

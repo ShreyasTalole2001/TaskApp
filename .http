@@ -2,7 +2,7 @@ POST http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
 {
-    "name" : "Shreyash Talole",
+    "name" : "Pranav Patil",
     "age" : 23,
     "email" : "shreyash@gmail.com",
     "password" : "MTKV"
@@ -13,7 +13,7 @@ POST http://localhost:3000/tasks HTTP/1.1
 content-type: application/json
 
 {
-    "description" : "Buy 1 Ltr. Milk",
+    "description" : "Do Laundry",
     "completed" : false
 }
 
@@ -21,7 +21,7 @@ content-type: application/json
 GET http://localhost:3000/users HTTP/1.1
 
 ###
-GET http://localhost:3000/users/63499241ad67ddf70b1a00a0 HTTP/1.1
+GET http://localhost:3000/users/6353e22c87c567528940098f HTTP/1.1
 
 ###
 GET http://localhost:3000/tasks HTTP/1.1
@@ -34,20 +34,21 @@ PATCH http://localhost:3000/users/634995ff1c2ee7f37f77464c HTTP/1.1
 content-type: application/json
 
 {
-    "name" : "Nachiket Yawalkar",
-    "age" : 24
+    "name" : "Nachiket Yawalkar 123",
+    "age" : 24,
+    "password" : "ABC"
 }
 
 ###
-PATCH http://localhost:3000/tasks/634998a57ee5e0e40bc5366f HTTP/1.1
+PATCH http://localhost:3000/tasks/6353e36beefaea8a12c90030 HTTP/1.1
 content-type: application/json
 
 {
-    "description" : "2 Liter milk"
+    "completed" : false
 }
 
 ###
-DELETE http://localhost:3000/users/63499241ad67ddf70b1a00a0 HTTP/1.1
+DELETE http://localhost:3000/users/6353df049bdf15f178fb77a2 HTTP/1.1
 
 ###
-DELETE http://localhost:3000/tasks/634998c17ee5e0e40bc53671 HTTP/1.1
+DELETE http://localhost:3000/tasks/634998a57ee5e0e40bc5366f HTTP/1.1

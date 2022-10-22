@@ -19,6 +19,8 @@ const port = process.env.PORT || 3000
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(publicDirectoryPath))
+
+// ROUTERS
 app.use(userRouter)
 app.use(taskRouter)
 
@@ -31,6 +33,9 @@ app.get('/', (req, res) => {
 app.listen(3000, () => {
   console.log("Server is up and running on port " + port)
 })
+
+
+
 
 
 

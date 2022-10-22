@@ -1,1 +1,1 @@
-C:\Users\One\mongodb\bin>mongod.exe --dbpath=/users/one/mongodb-data
+C:\Users\One\mongodb\bin mongod.exe --dbpath=/users/one/mongodb-data
