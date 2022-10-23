@@ -1,5 +1,6 @@
 const express = require('express')
 const router = new express.Router()
+const bcrypt = require('bcrypt')
 const User = require('../models/user')
 
 router.post('/users', async (req, res) => {
@@ -69,6 +70,36 @@ router.delete('/users/:id', async (req, res) => {
   } catch (e) {
     console.log("Error " + e)
   }
+
+})
+
+// USER LOGIN
+router.post('/user/login', async (req, res) => {
+
+
+  const email = req.body.email
+  try {
+
+    const user = await User.findOne({ "email": email })
+    if (!user) {
+      throw new Error("Unable to login")
+    }
+
+    const isMatched = await bcrypt.compare(req.body.password, user.password)
+    console.log(isMatched)
+
+    if (!isMatched) {
+      throw new Error("Unable to login, Wrong password")
+    }
+
+    res.send(user)
+
+
+  } catch (e) {
+    console.log("Error" + e)
+  }
+
+
 
 })
 

@@ -1,36 +1,27 @@
+// To create a new user
 POST http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
 {
-    "name" : "Pranav Patil",
+    "name" : "Aniket karse",
     "age" : 23,
-    "email" : "shreyash@gmail.com",
+    "email" : "aniket@gmail.com",
     "password" : "MTKV"
 }
 
 ###
-POST http://localhost:3000/tasks HTTP/1.1
-content-type: application/json
-
-{
-    "description" : "Do Laundry",
-    "completed" : false
-}
-
-###
+// to get all users
 GET http://localhost:3000/users HTTP/1.1
 
 ###
+// to get user by id
 GET http://localhost:3000/users/6353e22c87c567528940098f HTTP/1.1
 
-###
-GET http://localhost:3000/tasks HTTP/1.1
+
 
 ###
-GET http://localhost:3000/tasks/634998a57ee5e0e40bc5366f HTTP/1.1
-
-###
-PATCH http://localhost:3000/users/634995ff1c2ee7f37f77464c HTTP/1.1
+// to update user by id
+PATCH http://localhost:3000/users/6354cb2baca3f9dadd91bf64 HTTP/1.1
 content-type: application/json
 
 {
@@ -40,6 +31,46 @@ content-type: application/json
 }
 
 ###
+// to delete user by id
+DELETE http://localhost:3000/users/6354cb2baca3f9dadd91bf64 HTTP/1.1
+
+###
+// to login user
+POST http://localhost:3000/user/login HTTP/1.1
+content-type: application/json
+
+{
+
+    "email" : "aniket@gmail.com",
+    "password" : "MTKV"
+}
+
+# -------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
+
+
+###
+// To create a new task
+POST http://localhost:3000/tasks HTTP/1.1
+content-type: application/json
+
+{
+    "description" : "Do Laundry",
+    "completed" : false
+}
+
+###
+// to get all tasks
+GET http://localhost:3000/tasks HTTP/1.1
+
+###
+// to get task by id
+GET http://localhost:3000/tasks/634998a57ee5e0e40bc5366f HTTP/1.1
+
+
+
+###
+// to update task by id
 PATCH http://localhost:3000/tasks/6353e36beefaea8a12c90030 HTTP/1.1
 content-type: application/json
 
@@ -47,8 +78,7 @@ content-type: application/json
     "completed" : false
 }
 
-###
-DELETE http://localhost:3000/users/6353df049bdf15f178fb77a2 HTTP/1.1
 
 ###
+// to delete task by id
 DELETE http://localhost:3000/tasks/634998a57ee5e0e40bc5366f HTTP/1.1
