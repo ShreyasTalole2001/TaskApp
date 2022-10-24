@@ -15,6 +15,8 @@ const publicDirectoryPath = path.join(__dirname, '/public')
 const port = process.env.PORT || 3000
 
 
+
+
 // MIDDLEWARES
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -36,19 +38,7 @@ app.listen(3000, () => {
 })
 
 
-// const jwt = require('jsonwebtoken')
 
-// const myfunction = async () => {
-
-//   const token = jwt.sign({"_id" : "abcd123"}, "thisismysecreat")
-//   console.log(token)
-
-//   const data = jwt.verify(token, 'thisismysecreat')
-//   console.log(data)
-
-// }
-
-// myfunction()
 
 
 

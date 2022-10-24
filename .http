@@ -12,6 +12,11 @@ content-type: application/json
 ###
 // to get all users
 GET http://localhost:3000/users HTTP/1.1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzU2NThlZWRlMGYyM2Y2ZDFjNGM0ZTgiLCJpYXQiOjE2NjY2MDMyNDZ9.GozMocYluRB2KG0MNOEdiT7DbksChrwjPMfq99c_dbA
+
+###
+GET http://localhost:3000/users/me HTTP/1.1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzU2NThlZWRlMGYyM2Y2ZDFjNGM0ZTgiLCJpYXQiOjE2NjY2MDMyNDZ9.GozMocYluRB2KG0MNOEdiT7DbksChrwjPMfq99c_dbA
 
 ###
 // to get user by id
