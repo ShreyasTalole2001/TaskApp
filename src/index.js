@@ -30,10 +30,25 @@ app.get('/', (req, res) => {
 })
 
 
+
 app.listen(3000, () => {
   console.log("Server is up and running on port " + port)
 })
 
+
+// const jwt = require('jsonwebtoken')
+
+// const myfunction = async () => {
+
+//   const token = jwt.sign({"_id" : "abcd123"}, "thisismysecreat")
+//   console.log(token)
+
+//   const data = jwt.verify(token, 'thisismysecreat')
+//   console.log(data)
+
+// }
+
+// myfunction()
 
 
 
